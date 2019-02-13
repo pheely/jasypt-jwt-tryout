@@ -1,0 +1,38 @@
+buildscript {
+  ext {
+	springBootVersion = '1.5.10.RELEASE'
+	GENERATED_SRC_DIR = "${buildDir}/generated/java"
+  }
+  repositories {
+        mavenCentral()
+  }
+
+  dependencies {
+	classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	compileOnly "org.projectlombok:lombok"
+ 	compile "org.springframework.boot:spring-boot-starter"
+ 	compile "org.springframework.boot:spring-boot-starter-actuator"
+ 	compile "org.springframework.boot:spring-boot-devtools"
+	compile "io.jsonwebtoken:jjwt:0.9.0"
+	compile "com.github.ulisesbocchio:jasypt-spring-boot-starter:1.18"
+
+	testCompileOnly "org.projectlombok:lombok"
+	testCompile "org.springframework.boot:spring-boot-starter-test"
+
+}
+
